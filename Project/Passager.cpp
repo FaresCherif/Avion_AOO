@@ -1,12 +1,36 @@
 #include "Passager.h"
+#include <string>
+#include <vector>
+#include <iostream>
 
 
-
-Passager::Passager()
+void Passager::reserver()
 {
+
+}
+
+void Passager::confirmer()
+{
+
+}
+
+void Passager::annuler()
+{
+
+}
+
+void Passager::afficherListeVol()
+{
+
+}
+
+void Passager::verifierVol()
+{
+
 }
 
 
-Passager::~Passager()
+void Passager::verifierReservation()
 {
+
 }

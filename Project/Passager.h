@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Client
+class Passager
 {
 	string nom;
 	string prenom;
