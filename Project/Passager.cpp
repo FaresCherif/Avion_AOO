@@ -38,13 +38,13 @@ void Passager::verifierReservation()
 
 
 Passager::Passager() {
-	std::ofstream out{ "Passager.txt" };
+	fstream out{ "Passager.txt" };
 
 	cout << "Entrez le nom : ";
 	cin >> nom;
 	cout << "Entrez le prenom : ";
 	cin >> prenom;
-	cout << "Entrez l age";
+	cout << "Entrez l age : ";
 	cin >> age;
 	cout << "Entrez le titre (Mme/M/Mlle) : ";
 	cin >> titre;
@@ -57,9 +57,35 @@ Passager::Passager() {
 	this->titre = titre;
 	this->numPasseport = numPasseport;
 
-	out << nom << "," << prenom << "," << age << "," << titre << "," << numPasseport << "\n";
+	string text = nom;
+	text.append(",");
+	text.append(prenom);
+	text.append(",");
+	text.append(to_string(age));
+	text.append(",");
+	text.append(titre);
+	text.append(",");
+	text.append(numPasseport);
 
-	out.close();
+	ifstream fichier;
+	fichier.open("Passager.txt", ios::in);
+
+	string ligne;
+	ligne = "";
+
+
+	while (fichier)    //Tant qu'on n'est pas a la fin
+	{
+
+		getline(fichier, ligne); //On lit une ligne
+		if (fichier) {
+			out << ligne << "\n";
+		}
+
+	}
+
+	out << text;
+
 }
 
 Passager::Passager(string nom,string prenom,int age,string titre,string numPasseport) {
