@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <fstream>
 #include <string>
+#include "Passager.h"
 
 
 using namespace std;
@@ -33,7 +34,7 @@ int main() {
 		string admin = "n";
 		cout << "etes vous admin ? (y/n)";
 		cin >> admin;
-		
+
 		if (admin == "y") {
 			choix = 0;
 			ifstream fichier;
@@ -45,60 +46,71 @@ int main() {
 			{
 				getline(fichier, ligne); //On lit une ligne
 			}
+
 			string mdp;
 			cout << "Tapez le mot de passe Administrateur : ";
 			cin >> mdp;
 
 			if (mdp == ligne) {
-				cout << "vous etes connecte"<<"\n";
+				cout << "vous etes connecte" << "\n";
 				int choixMenu = 0;
 
 
-				while (choixMenu!=5 && choixMenu!=6) {
+				while (choixMenu != 5 && choixMenu != 6) {
 					menuAdmin();
 					cin >> choixMenu;
-					switch (choixMenu)
-					{
-					case 3:
-						int nbplace;
-						cout << "Nombre de place dans ce vol : ";
-						cin >> nbplace;
-						break;
 
-					case 6:
-						choixMenu = 6;
-						choix = 6;
-						break;
+					if (choixMenu == 1) {
+						Passager passager = Passager();
 
-					default:
-						cout << "Le symbole entre n est pas accepte" << "\n";
-						break;
 					}
+
+					else {
+						if (choixMenu == 3) {
+							int nbplace;
+							cout << "Nombre de place dans ce vol : ";
+
+							cin >> nbplace;
+						}
+
+						else {
+							if (choixMenu == 6) {
+								choixMenu = 6;
+								choix = 6;
+							}
+							else {
+								cout << "Le symbole entre n est pas accepte" << "\n";
+
+							}
+						}
+
+
+					}
+				}
+
+			}
+
+
+			else {
+				if (admin == "n") {
+					choix = 1;
+				}
+				else {
+					choix = 2;
 				}
 			}
 
-		}
 
-		
-		else{
-			if (admin == "n") {
-				choix = 1;
-			}
-			else {
-				choix = 2;
-			}
-		}
+			switch (choix) {
 
-
-		switch (choix) {
 			case 0:; break;
 			case 1:; break;
-			case 2: cout<<"Le symbole rentre n est pas accepte"<<"\n"; break;
+			case 2: cout << "Le symbole rentre n est pas accepte" << "\n"; break;
 			case 6: cout << "Au revoir" << "\n";
+			}
+
+
+
 		}
-
-
-
 	}
-
 }

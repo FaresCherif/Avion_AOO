@@ -14,6 +14,7 @@ class Reservation
 
 public:
 	Reservation();
+	Reservation(string,string,string,bool);
 	~Reservation();
 };
 

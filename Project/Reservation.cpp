@@ -20,8 +20,19 @@ Reservation::Reservation()
 	else {
 		this->confirmation = false;
 	}
+
+	this->numPasseport = numPasseport;
+	this->numReservation = numReservation;
+	this->numVol = numVol;
 }
 
+Reservation::Reservation(string numReservation,string numPasseport,string numVol, bool confirmation)
+{
+	this->numReservation = numReservation;
+	this->numPasseport = numPasseport;
+	this->numVol = numVol;
+	this->confirmation = confirmation;
+}
 
 Reservation::~Reservation()
 {

@@ -33,4 +33,23 @@ Date::Date(int jour,int mois, int annee,int heure, int minute)
 
 Date::~Date()
 {
+	cout << "Entrez le jour en chiffre : ";
+	cin >> jour;
+	this->jour = jour;
+
+	cout << "Entrez le mois en chiffre : ";
+	cin >> mois;
+	this->mois = mois;
+
+	cout << "Entrez l annee : ";
+	cin >> annee;
+	this->annee = annee;
+
+	cout << "Entrez l heure : ";
+	cin >> heure;
+	this->heure = heure;
+
+	cout << "Entrez les minutes : ";
+	cin >> minute;
+	this->minute = minute;
 }

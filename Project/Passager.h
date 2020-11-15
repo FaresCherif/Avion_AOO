@@ -11,10 +11,13 @@ class Passager
 	string nom;
 	string prenom;
 	int age;
-	enum string { Mme, M, Mlle };
-	string NumPasseport;
+	string titre;
+	string numPasseport;
 
 public:
+	Passager();
+	Passager(string, string, int, string ,string);
+
 	void reserver();
 	void confirmer();
 	void annuler();
