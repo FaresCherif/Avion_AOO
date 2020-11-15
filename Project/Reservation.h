@@ -9,7 +9,7 @@ class Reservation
 {
 	string numReservation;
 	string numPasseport;
-	string numVvol;
+	string numVol;
 	bool confirmation;
 
 public:

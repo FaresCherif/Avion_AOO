@@ -9,7 +9,11 @@ class Administrateur
 {
 	string identifiant;
 	string motDePasse;
+
 public:
+	Administrateur();
+	Administrateur(string,string);
+
 	void seConnecter();
 	void ajouterUnVol();
 	void ajouterUnPassager();

@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void menu() {
+void menuAdmin() {
 	cout << "             =====  Choix  ====="<<"\n";
 	cout << "1  -- Modifier la Date d un vol" << "\n";
 	cout << "2  -- Modifier l heure d un vol" << "\n";
@@ -16,6 +16,15 @@ void menu() {
 	cout << "6  -- Quitter sans savegarder" << "\n";
 }
 
+void menuUtilisateur() {
+	cout << "             =====  Choix  =====" << "\n";
+	cout << "1  -- Reserver un vol" << "\n";
+	cout << "2  -- Gerer ses reservations" << "\n";
+	cout << "3  -- Verfier vol" << "\n";
+	cout << "4  -- Afficher liste des vols" << "\n";
+	cout << "5  -- Quitter et savegarder" << "\n";
+	cout << "6  -- Quitter sans savegarder" << "\n";
+}
 
 int main() {
 	int choix = 0;
@@ -46,10 +55,16 @@ int main() {
 
 
 				while (choixMenu!=5 && choixMenu!=6) {
-					menu();
+					menuAdmin();
 					cin >> choixMenu;
 					switch (choixMenu)
 					{
+					case 3:
+						int nbplace;
+						cout << "Nombre de place dans ce vol : ";
+						cin >> nbplace;
+						break;
+
 					case 6:
 						choixMenu = 6;
 						choix = 6;

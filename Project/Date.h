@@ -16,6 +16,7 @@ class Date
 	int minute;
 public:
 	Date();
+	Date(int, int,int, int , int );
 	~Date();
 };
 
