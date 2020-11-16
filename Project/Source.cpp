@@ -3,7 +3,8 @@
 #include <fstream>
 #include <string>
 #include "Passager.h"
-
+#include "Destination.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -61,7 +62,7 @@ int main() {
 					cin >> choixMenu;
 
 					if (choixMenu == 1) {
-						Passager passager = Passager();
+						Date date = Date();
 
 					}
 

@@ -8,15 +8,11 @@ using namespace std;
 
 class Date
 {
-	int jour;
-	int mois;
-	int annee;
-
-	int heure;
-	int minute;
+	string date;
+	string heure;
 public:
 	Date();
-	Date(int, int,int, int , int );
+	Date(string, string );
 	~Date();
 };
 
