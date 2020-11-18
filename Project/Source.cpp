@@ -10,12 +10,21 @@ using namespace std;
 
 void menuAdmin() {
 	cout << "             =====  Choix  ====="<<"\n";
-	cout << "1  -- Modifier la Date d un vol" << "\n";
+	cout << "1  -- Gerer les destinations" << "\n";
 	cout << "2  -- Modifier l heure d un vol" << "\n";
 	cout << "3  -- Ajouter vol" << "\n";
 	cout << "4  -- Afficher liste des vols" << "\n";
 	cout << "5  -- Quitter et savegarder" << "\n";
 	cout << "6  -- Quitter sans savegarder" << "\n";
+}
+
+void menuDestination() {
+	cout << "1  -- Afficher les destinations" << "\n";
+	cout << "2  -- Chercher ville de depart" << "\n";
+	cout << "3  -- Chercher ville d arrivee" << "\n";
+	cout << "4  -- Ajouter destination" << "\n";
+	cout << "5  -- Quitter" << "\n";
+
 }
 
 void menuUtilisateur() {
@@ -30,6 +39,7 @@ void menuUtilisateur() {
 
 int main() {
 	int choix = 0;
+	int choixDestination = 0;
 
 	while (choix != 6) {
 		string admin = "n";
@@ -62,8 +72,42 @@ int main() {
 					cin >> choixMenu;
 
 					if (choixMenu == 1) {
-						Date date = Date();
+						while (choixDestination != 5) {
 
+							Destination destination;
+							menuDestination();
+							cin >> choixDestination;
+
+							if (choixDestination == 1) {
+								destination.afficherDestination();
+							}
+							else {
+
+								if (choixDestination == 2) {
+									destination.chercherVilleDepart();
+
+								}
+								else {
+
+									if (choixDestination == 3) {
+										destination.chercherVilleArrive();
+									}
+									else {
+										if (choixDestination == 4) {
+											destination.crerDestination();
+										}
+										else {
+											if (choixDestination == 5) {
+
+											}
+											else {
+												cout << "Charactere non accepté";
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 
 					else {

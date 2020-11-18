@@ -101,3 +101,4 @@ Passager::Passager(string nom,string prenom,int age,string titre,string numPasse
 	out << nom<<","<<prenom<<","<<age<<","<<titre<<","<<numPasseport<<"\n";
 
 }
+
