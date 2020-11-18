@@ -61,8 +61,6 @@ void Destination::crerDestination()
 	this->villeDepart = villeDepart;
 	this->villeArrive = villeArrive;
 
-	cout << numero;
-
 	int num = stoi(numero);
 	num = num + 1;
 	numero = to_string(num);

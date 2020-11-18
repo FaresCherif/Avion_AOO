@@ -5,6 +5,25 @@
 
 Date::Date()
 {
+	
+}
+
+Date::Date(string date,string heure)
+{
+	this->date = date;
+	this->heure = heure;
+}
+
+void Date::creerDate()
+{
+	int i = 0;
+	string numero;
+
+	fstream out{ "Date.txt" };
+
+	ifstream fichier;
+	fichier.open("Date.txt", ios::in);
+
 	cout << "Jour : ";
 	string jour;
 	cin >> jour;
@@ -21,19 +40,15 @@ Date::Date()
 	string minute;
 	cin >> minute;
 
-	string texteDate="";
-	string texteHeure="";
+	string texteDate = "";
+	string texteHeure = "";
 
 	texteDate.append(jour);	texteDate.append("/");	texteDate.append(mois);	texteDate.append("/"); texteDate.append(annee); texteDate.append(",");
 	texteHeure.append(heuree); texteHeure.append(":"); texteHeure.append(minute);
-	
+
 	this->date = texteDate;
 	this->heure = texteHeure;
 
-	fstream out{ "Date.txt" };
-
-	ifstream fichier;
-	fichier.open("Date.txt", ios::in);
 
 	string ligne;
 	ligne = "";
@@ -42,23 +57,60 @@ Date::Date()
 	while (fichier)    //Tant qu'on n'est pas a la fin
 	{
 
-		getline(fichier, ligne); //On lit une ligne
+		getline(fichier, ligne,','); //On lit une ligne
+
 		if (fichier) {
-			out << ligne << "\n";
+			if (i == 4) {
+				i = 0;
+			}
+			if (i == 1) {
+				numero = ligne;
+				cout << numero;
+				cout << "numero";
+			}
+			i++;
+			out << ligne;
+			out << ',';
 		}
 
 	}
 
-	out << texteDate; out << texteHeure;
+	int num = stoi(numero);
+	num = num + 1;
+	numero = to_string(num);
+
+	out <<"\n"<<","<<numero<<','<< texteDate;out << texteHeure <<",";
 }
 
-Date::Date(string date,string heure)
+void Date::afficherDate()
 {
-	this->date = date;
-	this->heure = heure;
+	ifstream fichier;
+	fichier.open("Date.txt", ios::in);
+
+	string ligne;
+	ligne = "";
+
+	while (fichier)    //Tant qu'on n'est pas a la fin
+	{
+		getline(fichier, ligne, ','); //On lit une ligne
+
+		if (fichier) {
+			while (ligne != "" && fichier)
+			{
+
+				cout << ligne << " ";
+
+				getline(fichier, ligne, ',');
+
+			}
+		}
+	}
+	cout << "\n";
 }
 
 Date::~Date()
 {
 
 }
+
+

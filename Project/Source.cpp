@@ -11,8 +11,8 @@ using namespace std;
 void menuAdmin() {
 	cout << "             =====  Choix  ====="<<"\n";
 	cout << "1  -- Gerer les destinations" << "\n";
-	cout << "2  -- Modifier l heure d un vol" << "\n";
-	cout << "3  -- Ajouter vol" << "\n";
+	cout << "2  -- Gerer vol" << "\n";
+	cout << "3  -- Gerer passager" << "\n";
 	cout << "4  -- Afficher liste des vols" << "\n";
 	cout << "5  -- Quitter et savegarder" << "\n";
 	cout << "6  -- Quitter sans savegarder" << "\n";
@@ -24,7 +24,18 @@ void menuDestination() {
 	cout << "3  -- Chercher ville d arrivee" << "\n";
 	cout << "4  -- Ajouter destination" << "\n";
 	cout << "5  -- Quitter" << "\n";
+}
 
+void menuDate() {
+	cout << "1  -- Afficher les Date" << "\n";
+	cout << "2  -- Ajouter Date" << "\n";
+	cout << "3  -- Quitter" << "\n";
+}
+
+void menuPassager() {
+	cout << "1  -- Afficher les passagers" << "\n";
+	cout << "2  -- Ajouter passager" << "\n";
+	cout << "3  -- Quitter" << "\n";
 }
 
 void menuUtilisateur() {
@@ -40,6 +51,8 @@ void menuUtilisateur() {
 int main() {
 	int choix = 0;
 	int choixDestination = 0;
+	int choixDate = 0;
+	int choixPassager = 0;
 
 	while (choix != 6) {
 		string admin = "n";
@@ -111,51 +124,96 @@ int main() {
 					}
 
 					else {
-						if (choixMenu == 3) {
-							int nbplace;
-							cout << "Nombre de place dans ce vol : ";
 
-							cin >> nbplace;
+						if (choixMenu == 2) {
+							while (choixDate != 3) {
+
+								Date date;
+								menuDate();
+								cin >> choixDate;
+
+								if (choixDate == 1) {
+									date.afficherDate();
+								}
+								else {
+
+									if (choixDate == 2) {
+										date.creerDate();
+									}
+
+									else {
+										if (choixDate == 3) {
+
+										}
+										else {
+											cout << "Charactere non accepté";
+										}
+									}
+										
+									
+								}
+							}
 						}
-
 						else {
-							if (choixMenu == 6) {
-								choixMenu = 6;
-								choix = 6;
+
+
+							if (choixMenu == 3) {
+								while (choixPassager != 3) {
+
+									Passager passager;
+									menuPassager();
+									cin >> choixPassager;
+
+									if (choixPassager == 1) {
+										passager.afficherPassager();
+									}
+									else {
+
+										if (choixPassager == 2) {
+											passager.creerPassager();
+										}
+
+										else {
+											if (choixPassager == 3) {
+
+											}
+											else {
+												cout << "Charactere non accepté";
+											}
+										}
+
+
+									}
+								}
 							}
+
 							else {
-								cout << "Le symbole entre n est pas accepte" << "\n";
+								if (choixMenu == 6) {
+									choixMenu = 6;
+									choix = 6;
+								}
+								else {
+									cout << "Le symbole entre n est pas accepte" << "\n";
 
+								}
 							}
+
 						}
-
-
 					}
 				}
 
 			}
-
-
-			else {
-				if (admin == "n") {
-					choix = 1;
-				}
-				else {
-					choix = 2;
-				}
-			}
-
-
-			switch (choix) {
-
-			case 0:; break;
-			case 1:; break;
-			case 2: cout << "Le symbole rentre n est pas accepte" << "\n"; break;
-			case 6: cout << "Au revoir" << "\n";
-			}
-
-
-
 		}
+
+
+		else {
+			if (admin == "n") {
+				choix = 1;
+			}
+			else {
+				choix = 2;
+			}
+		}
+
 	}
 }

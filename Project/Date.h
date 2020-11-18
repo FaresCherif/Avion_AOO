@@ -13,6 +13,10 @@ class Date
 public:
 	Date();
 	Date(string, string );
+	void creerDate();
+	void afficherDate();
+	void chercherDate();
+
 	~Date();
 };
 
