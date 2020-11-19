@@ -179,4 +179,42 @@ Date::~Date()
 
 }
 
+void Date::afficherDate(string num)
+{
+	ifstream fichier;
+	fichier.open("Date.txt", ios::in);
 
+	string ligne;
+	string lignePrecedente;
+
+
+	ligne = "";
+	int i = 0;
+
+	while (fichier)    //Tant qu'on n'est pas a la fin
+	{
+		getline(fichier, ligne, ','); //On lit une ligne
+
+		if (fichier) {
+
+			while (ligne != "" && fichier)
+			{
+				if (i == 4) {
+					i = 0;
+				}
+
+				if (i == 0) {
+					if (ligne == num) {
+						cout << "         ";
+						getline(fichier, ligne, ',');
+						cout << ligne << " ";
+						getline(fichier, ligne, ',');
+						cout << ligne << "         ";
+					}
+				}
+				i++;
+				getline(fichier, ligne, ',');
+			}
+		}
+	}
+}

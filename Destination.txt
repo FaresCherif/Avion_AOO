@@ -14,3 +14,5 @@
 ,14,Paris,Manhattan,
 ,15,Melbourne,Casablanca,
 ,16,Paris,Melbourne,
+,17,Lourdes,Lyon,
+,18,Lourdes,Tokyo,

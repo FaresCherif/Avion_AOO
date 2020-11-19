@@ -137,20 +137,19 @@ string Destination::rechercherDestination(string villeDepart,string villeArrive)
 	return numero;
 }
 
-void Destination::chercherVilleArrive()
+
+string Destination::chercherVilleArrive(string villeArrivee)
 {
 	ifstream fichier;
 	fichier.open("Destination.txt", ios::in);
 
 	string ligne;
-	string villeArrivee;
 	string lignePrecedente;
+	string numero=",";
+	string numeroActuel="1";
 
 	ligne = "";
 	int i = 0;
-
-	cout << "Entrez la ville arrive cherchee : ";
-	cin >> villeArrivee;
 
 	while (fichier)    //Tant qu'on n'est pas a la fin
 	{
@@ -161,13 +160,18 @@ void Destination::chercherVilleArrive()
 			{
 				if (i == 4) {
 					i = 0;
+					numeroActuel = ligne;
 				}
-				if (i == 2) {
+				if (i == 1) {
+					
+				}
 
+				if (i == 2) {
 					if (ligne == villeArrivee) {
-						cout << "\n";
-						cout << lignePrecedente << " ";
-						cout << ligne << " \n";
+
+						numero.append(numeroActuel);
+						numero.append(",");
+
 					}
 				}
 				i++;
@@ -176,58 +180,44 @@ void Destination::chercherVilleArrive()
 			}
 		}
 	}
+
+
+	return numero;
 }
 
-void Destination::chercherVilleDepart()
+string Destination::chercherVilleDepart(string villeDepart)
 {
 	ifstream fichier;
 	fichier.open("Destination.txt", ios::in);
 
 	string ligne;
 	string lignePrecedente;
-	string villeDepart;
+	string numero = ",";
+	string numeroActuel = "1";
 
 	ligne = "";
 	int i = 0;
-
-	cout << "Entrez la ville depart cherchee : ";
-	cin >> villeDepart;
 
 	while (fichier)    //Tant qu'on n'est pas a la fin
 	{
 		getline(fichier, ligne, ','); //On lit une ligne
 
 		if (fichier) {
-			while (ligne != "" && fichier)
-			{
-				if (i == 4) {
-					i = 0;if (fichier) {
+
 			while (ligne != "" && fichier)
 			{
 				if (i == 4) {
 					i = 0;
+					numeroActuel = ligne;
 				}
+
 				if (i == 1) {
 					if (ligne == villeDepart) {
-						cout << "\n";
-						cout << ligne << " ";
 						i++;
 						getline(fichier, ligne, ',');
-						cout << ligne << " \n";
-					}
-				}
-				i++;
-				getline(fichier, ligne, ',');
-			}
-		}
-				}
-				if (i == 1) {
-					if (ligne == villeDepart) {
-						cout << "\n";
-						cout << ligne << " ";
-						i++;
-						getline(fichier, ligne, ',');
-						cout << ligne << " \n";
+						numero.append(numeroActuel);
+						numero.append(",");
+
 					}
 				}
 				i++;
@@ -235,6 +225,8 @@ void Destination::chercherVilleDepart()
 			}
 		}
 	}
+	return numero;
+	
 }
 
 void Destination::afficherDestination()
@@ -262,6 +254,46 @@ void Destination::afficherDestination()
 	}
 	cout << "\n";
 
+}
+
+void Destination::afficherDestination(string num)
+{
+	ifstream fichier;
+	fichier.open("Destination.txt", ios::in);
+
+	string ligne;
+	string lignePrecedente;
+
+
+	ligne = "";
+	int i = 0;
+
+	while (fichier)    //Tant qu'on n'est pas a la fin
+	{
+		getline(fichier, ligne, ','); //On lit une ligne
+
+		if (fichier) {
+
+			while (ligne != "" && fichier)
+			{
+				if (i == 4) {
+					i = 0;
+				}
+
+				if (i == 0) {
+					if (ligne == num) {
+					
+						getline(fichier, ligne, ',');
+						cout << ligne<<"--";
+						getline(fichier, ligne, ',');
+						cout << ligne;
+					}
+				}
+				i++;
+				getline(fichier, ligne, ',');
+			}
+		}
+	}
 }
 
 Destination::Destination(string villeDepart,string villeArrive) {

@@ -21,10 +21,8 @@ void menuAdmin() {
 void menuDestination() {
 	cout << "             =====  Destination  =====" << "\n";
 	cout << "1  -- Afficher les destinations" << "\n";
-	cout << "2  -- Chercher ville de depart" << "\n";
-	cout << "3  -- Chercher ville d arrivee" << "\n";
-	cout << "4  -- Ajouter destination" << "\n";
-	cout << "5  -- Quitter" << "\n";
+	cout << "2  -- Ajouter destination" << "\n";
+	cout << "3  -- Quitter" << "\n";
 }
 
 void menuDate() {
@@ -46,7 +44,9 @@ void menuVol() {
 	cout << "1  -- Afficher les vols" << "\n";
 	cout << "2  -- Ajouter vol" << "\n";
 	cout << "3  -- Chercher vol par numero" << "\n";
-	cout << "4  -- Quitter" << "\n";
+	cout << "4  -- Chercher vol partant d une ville" << "\n";
+	cout << "5  -- Chercher vol arrivant dans une ville" << "\n";
+	cout << "6  -- Quitter" << "\n";
 }
 
 void menuUtilisateur() {
@@ -99,7 +99,7 @@ int main() {
 					cin >> choixMenu;
 
 					if (choixMenu == 1) {
-						while (choixDestination != 5) {
+						while (choixDestination != 3) {
 
 							Destination destination;
 							menuDestination();
@@ -111,28 +111,18 @@ int main() {
 							else {
 
 								if (choixDestination == 2) {
-									destination.chercherVilleDepart();
-
+									destination.crerDestination();
 								}
+								
 								else {
-
 									if (choixDestination == 3) {
-										destination.chercherVilleArrive();
+										
 									}
 									else {
-										if (choixDestination == 4) {
-											destination.crerDestination();
-										}
-										else {
-											if (choixDestination == 5) {
-
-											}
-											else {
-												cout << "Charactere non accepté";
-											}
-										}
+										cout << "Charactere non accepté";
 									}
 								}
+										
 							}
 						}
 					}
@@ -204,7 +194,7 @@ int main() {
 							}
 							else {
 								if (choixMenu == 4) {
-									while (choixPassager!=4) {
+									while (choixPassager!=6) {
 										menuVol();
 										Vol vol;
 										cin >> choixPassager;
@@ -225,7 +215,24 @@ int main() {
 												}
 												else {
 													if (choixPassager == 4) {
+														cout << "Entrez la ville de depart : ";
+														string villeDepart;
+														cin >> villeDepart;
+														vol.chercherParVilleDepart(villeDepart);
+													}
+													else {
+														if (choixPassager == 5) {
 
+															cout << "Entrez la ville d arrivee : ";
+															string villeArrive;
+															cin >> villeArrive;
+															vol.chercherParVilleArrivee(villeArrive);
+														}
+														else {
+															if (choixPassager == 6) {
+
+															}
+														}
 													}
 												}
 											}

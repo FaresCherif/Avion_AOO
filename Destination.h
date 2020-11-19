@@ -14,9 +14,10 @@ public:
 	Destination();
 	string crerDestination();
 	string rechercherDestination(string,string);
-	void chercherVilleArrive();
-	void chercherVilleDepart();
+	string chercherVilleArrive(string);
+	string chercherVilleDepart(string);
 	void afficherDestination();
+	void afficherDestination(string);
 	Destination(string,string);
 	~Destination();
 };

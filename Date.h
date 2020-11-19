@@ -15,6 +15,7 @@ public:
 	Date(string, string );
 	string creerDate();
 	void afficherDate();
+	void afficherDate(string);
 	string chercherDate(string date,string heure);
 
 	~Date();

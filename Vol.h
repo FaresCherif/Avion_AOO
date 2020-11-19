@@ -21,7 +21,11 @@ public:
 	Vol();
 	void creerVol();
 	void afficherVol();
+	void chercherParVilleDepart(string);
+	void chercherParVilleArrivee(string);
 	void chercherParNum(string num);
+	string chercherParDestinationNum(string num);
+	void developperVol(string vol);
 	~Vol();
 };
 
