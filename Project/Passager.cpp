@@ -5,12 +5,9 @@
 #include <fstream>
 
 
-void Passager::creerPassager()
+string Passager::creerPassager()
 {
 	fstream out{ "Passager.txt" };
-
-	
-
 
 	ifstream fichier;
 	fichier.open("Passager.txt", ios::in);
@@ -83,6 +80,8 @@ void Passager::creerPassager()
 	text.append(",");
 
 	out << text;
+
+	return numero;
 }
 
 void Passager::reserver()

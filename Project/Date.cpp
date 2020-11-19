@@ -14,7 +14,7 @@ Date::Date(string date,string heure)
 	this->heure = heure;
 }
 
-void Date::creerDate()
+string Date::creerDate()
 {
 	int i = 0;
 	string numero;
@@ -80,6 +80,8 @@ void Date::creerDate()
 	numero = to_string(num);
 
 	out <<"\n"<<","<<numero<<','<< texteDate;out << texteHeure <<",";
+
+	return numero;
 }
 
 void Date::afficherDate()

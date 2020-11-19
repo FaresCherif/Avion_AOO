@@ -19,6 +19,8 @@ class Vol
 public:
 	Vol(string, int, Destination, Date,float);
 	Vol();
+	void creerVol();
+	void afficherVol();
 	~Vol();
 };
 

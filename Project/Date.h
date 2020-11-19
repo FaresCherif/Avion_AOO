@@ -13,7 +13,7 @@ class Date
 public:
 	Date();
 	Date(string, string );
-	void creerDate();
+	string creerDate();
 	void afficherDate();
 	void chercherDate();
 

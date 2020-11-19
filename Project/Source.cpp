@@ -5,20 +5,21 @@
 #include "Passager.h"
 #include "Destination.h"
 #include "Date.h"
+#include "Vol.h"
 
 using namespace std;
 
 void menuAdmin() {
 	cout << "             =====  Choix  ====="<<"\n";
 	cout << "1  -- Gerer les destinations" << "\n";
-	cout << "2  -- Gerer vol" << "\n";
+	cout << "2  -- Gerer date" << "\n";
 	cout << "3  -- Gerer passager" << "\n";
-	cout << "4  -- Afficher liste des vols" << "\n";
-	cout << "5  -- Quitter et savegarder" << "\n";
-	cout << "6  -- Quitter sans savegarder" << "\n";
+	cout << "4  -- Gerer vols" << "\n";
+	cout << "5  -- Quitter" << "\n";
 }
 
 void menuDestination() {
+	cout << "             =====  Destination  =====" << "\n";
 	cout << "1  -- Afficher les destinations" << "\n";
 	cout << "2  -- Chercher ville de depart" << "\n";
 	cout << "3  -- Chercher ville d arrivee" << "\n";
@@ -27,14 +28,23 @@ void menuDestination() {
 }
 
 void menuDate() {
+	cout << "             =====  Date  =====" << "\n";
 	cout << "1  -- Afficher les Date" << "\n";
 	cout << "2  -- Ajouter Date" << "\n";
 	cout << "3  -- Quitter" << "\n";
 }
 
 void menuPassager() {
+	cout << "             =====  Passager  =====" << "\n";
 	cout << "1  -- Afficher les passagers" << "\n";
 	cout << "2  -- Ajouter passager" << "\n";
+	cout << "3  -- Quitter" << "\n";
+}
+
+void menuVol() {
+	cout << "             =====  Vol  =====" << "\n";
+	cout << "1  -- Afficher les vols" << "\n";
+	cout << "2  -- Ajouter vol" << "\n";
 	cout << "3  -- Quitter" << "\n";
 }
 
@@ -53,6 +63,7 @@ int main() {
 	int choixDestination = 0;
 	int choixDate = 0;
 	int choixPassager = 0;
+	int choixVol = 0;
 
 	while (choix != 6) {
 		string admin = "n";
@@ -80,7 +91,7 @@ int main() {
 				int choixMenu = 0;
 
 
-				while (choixMenu != 5 && choixMenu != 6) {
+				while (choixMenu != 5) {
 					menuAdmin();
 					cin >> choixMenu;
 
@@ -186,17 +197,41 @@ int main() {
 									}
 								}
 							}
-
 							else {
-								if (choixMenu == 6) {
-									choixMenu = 6;
-									choix = 6;
+								if (choixMenu == 4) {
+									while (choixPassager!=3) {
+										menuVol();
+										Vol vol;
+										cin >> choixPassager;
+
+										if (choixPassager == 1) {
+											vol.afficherVol();
+										}
+										else {
+											if (choixPassager == 2) {
+												vol.creerVol();
+											}
+											else {
+												if (choixPassager == 3) {
+
+												}
+											}
+										}
+									}
+
 								}
 								else {
-									cout << "Le symbole entre n est pas accepte" << "\n";
+									if (choixMenu == 5) {
+										choixMenu = 5;
+										choix = 6;
+									}
+									else {
+										cout << "Le symbole entre n est pas accepte" << "\n";
 
+									}
 								}
 							}
+
 
 						}
 					}

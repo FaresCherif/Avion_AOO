@@ -18,7 +18,7 @@ public:
 	Passager();
 	Passager(string, string, int, string ,string);
 	void afficherPassager();
-	void creerPassager();
+	string creerPassager();
 	void reserver();
 	void confirmer();
 	void annuler();

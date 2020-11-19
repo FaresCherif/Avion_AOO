@@ -11,7 +11,7 @@ Destination::Destination()
 
 }
 
-void Destination::crerDestination()
+string Destination::crerDestination()
 {
 	
 
@@ -75,6 +75,8 @@ void Destination::crerDestination()
 	text.append(villeArrive);
 	text.append(",");
 	out << text;
+
+	return numero;
 }
 
 void Destination::chercherVilleArrive()

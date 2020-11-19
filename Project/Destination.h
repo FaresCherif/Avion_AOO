@@ -12,7 +12,7 @@ class Destination
 
 public:
 	Destination();
-	void crerDestination();
+	string crerDestination();
 	void chercherVilleArrive();
 	void chercherVilleDepart();
 	void afficherDestination();
