@@ -11,3 +11,6 @@
 ,11,Paris,Benghal,
 ,12,Boston,Atlanta,
 ,13,Paris,Boston,
+,14,Paris,Manhattan,
+,15,Melbourne,Casablanca,
+,16,Paris,Melbourne,

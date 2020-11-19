@@ -20,6 +20,7 @@ string Destination::crerDestination()
 	ifstream fichier;
 	fichier.open("Destination.txt", ios::in);
 
+	Destination destination;
 	string ligne;
 	int i=0;
 	string numero;
@@ -40,7 +41,6 @@ string Destination::crerDestination()
 				}
 
 				if (i == 0) {
-					cout << ligne;
 					numero = ligne;
 				}
 
@@ -61,21 +61,79 @@ string Destination::crerDestination()
 	this->villeDepart = villeDepart;
 	this->villeArrive = villeArrive;
 
-	int num = stoi(numero);
-	num = num + 1;
-	numero = to_string(num);
-	string text = "";
+	if (destination.rechercherDestination(villeDepart, villeArrive) == "")
+	{
+		int num = stoi(numero);
+		num = num + 1;
+		numero = to_string(num);
+		string text = "";
 
-	text.append("\n");
-	text.append(",");
-	text.append(numero);
-	text.append(",");
-	text.append(villeDepart);
-	text.append(",");
-	text.append(villeArrive);
-	text.append(",");
-	out << text;
+		text.append("\n");
+		text.append(",");
+		text.append(numero);
+		text.append(",");
+		text.append(villeDepart);
+		text.append(",");
+		text.append(villeArrive);
+		text.append(",");
+		out << text;
 
+		return numero;
+	}
+	else {
+		return destination.rechercherDestination(villeDepart, villeArrive);
+	}
+}
+
+string Destination::rechercherDestination(string villeDepart,string villeArrive) {
+	string numero = "";
+	string numeroEnCours = "";
+
+	fstream out{ "Destination.txt" };
+
+	ifstream fichier;
+	fichier.open("Destination.txt", ios::in);
+	string ligne;
+	int i = 0;
+
+
+	while (fichier)    //Tant qu'on n'est pas a la fin
+	{
+
+		getline(fichier, ligne, ','); //On lit une ligne
+		if (fichier) {
+			while (ligne != "" && fichier)
+			{
+				out << ',' << ligne;
+
+				if (i == 4) {
+					i = 0;
+					numeroEnCours = ligne;
+				}
+
+				if (i == 1) {
+					if (villeDepart == ligne) {
+							
+						getline(fichier, ligne, ',');
+						i++;
+						out << ',' << ligne;
+							
+						if (villeArrive == ligne) {
+
+							numero = numeroEnCours;
+						}
+						
+					}
+				}
+
+				i++;
+				getline(fichier, ligne, ',');
+			}
+		}
+
+	}
+
+	cout << numero;
 	return numero;
 }
 

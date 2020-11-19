@@ -45,7 +45,8 @@ void menuVol() {
 	cout << "             =====  Vol  =====" << "\n";
 	cout << "1  -- Afficher les vols" << "\n";
 	cout << "2  -- Ajouter vol" << "\n";
-	cout << "3  -- Quitter" << "\n";
+	cout << "3  -- Chercher vol par numero" << "\n";
+	cout << "4  -- Quitter" << "\n";
 }
 
 void menuUtilisateur() {
@@ -189,7 +190,9 @@ int main() {
 
 											}
 											else {
+		
 												cout << "Charactere non accepté";
+												
 											}
 										}
 
@@ -199,7 +202,7 @@ int main() {
 							}
 							else {
 								if (choixMenu == 4) {
-									while (choixPassager!=3) {
+									while (choixPassager!=4) {
 										menuVol();
 										Vol vol;
 										cin >> choixPassager;
@@ -213,7 +216,15 @@ int main() {
 											}
 											else {
 												if (choixPassager == 3) {
+													string numVol;
+													cout << "Entrez le numero recherche : ";
+													cin >> numVol;
+													vol.chercherParNum(numVol);
+												}
+												else {
+													if (choixPassager == 4) {
 
+													}
 												}
 											}
 										}

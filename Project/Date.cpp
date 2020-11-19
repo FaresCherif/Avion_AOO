@@ -65,8 +65,7 @@ string Date::creerDate()
 			}
 			if (i == 1) {
 				numero = ligne;
-				cout << numero;
-				cout << "numero";
+
 			}
 			i++;
 			out << ligne;

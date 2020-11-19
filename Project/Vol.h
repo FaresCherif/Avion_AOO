@@ -21,6 +21,7 @@ public:
 	Vol();
 	void creerVol();
 	void afficherVol();
+	void chercherParNum(string num);
 	~Vol();
 };
 
